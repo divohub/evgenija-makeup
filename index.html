@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evgenija | Makeup Artist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #d4a373; /* Золотисто-бежевый */
+            --bg: #1a1a1a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --text: #fefae0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Анимированный фон с мягкими пятнами */
+        .bg-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #2c2c2c 0%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            filter: blur(120px);
+            opacity: 0.15;
+            border-radius: 50%;
+            animation: move 25s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-20%, -20%) rotate(0deg); }
+            to { transform: translate(30%, 30%) rotate(360deg); }
+        }
+
+        /* Основная карточка */
+        .container {
+            max-width: 450px;
+            width: 90%;
+            padding: 3rem 2rem;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            animation: slideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            padding: 5px;
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #333; /* Заглушка пока нет фото */
+        }
+
+        .container:hover .profile-img {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+
+        .tagline {
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .description {
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Кнопки */
+        .nav-links {
+            display: grid;
+            gap: 15px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            text-decoration: none;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .nav-item:hover::before {
+            left: 100%;
+        }
+
+        .nav-item:hover {
+            background: var(--accent);
+            color: #1a1a1a;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(212, 163, 115, 0.3);
+            border-color: var(--accent);
+        }
+
+        .nav-item.primary {
+            background: var(--accent);
+            color: #1a1a1a;
+        }
+
+        .nav-item.primary:hover {
+            filter: brightness(1.1);
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob" style="top: -10%; left: -10%;"></div>
+        <div class="blob" style="bottom: -10%; right: -10%; background: #a5a58d; animation-delay: -5s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="profile-img">
+            <!-- Здесь будет фото Евгении -->
+            <div style="width:100%; height:100%; border-radius:50%; background: #2a2a2a; display:flex; align-items:center; justify-content:center; font-size:3rem; font-family:'Playfair Display'">E</div>
+        </div>
+        <h1>Evgenija</h1>
+        <div class="tagline">Makeup Artist & Stylist</div>
+        <p class="description">Создаю образы, которые подчеркивают вашу природную красоту. Вечерний макияж, свадебные образы и обучение «Макияж для себя».</p>
+        
+        <div class="nav-links">
+            <a href="https://t.me/httpdivo" class="nav-item primary">✨ Записаться (Telegram)</a>
+            <a href="#" class="nav-item">💄 Портфолио</a>
+            <a href="#" class="nav-item">📜 Прайс-лист</a>
+            <a href="#" class="nav-item">📸 Instagram</a>
+        </div>
+
+        <footer>© 2026 EVGENIJA MAKEUP</footer>
+    </div>
+</body>
+</html>
