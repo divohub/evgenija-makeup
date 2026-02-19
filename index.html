@@ -130,9 +130,33 @@
             background: linear-gradient(90deg, var(--accent-soft), transparent);
         }
 
+        /* Sub-sections for choices */
+        .sub-section {
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .sub-section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sub-section-title::before {
+            content: '✦';
+            font-size: 0.8rem;
+        }
+
         .product-list {
             display: grid;
-            gap: 25px;
+            gap: 15px;
         }
 
         .product-item {
@@ -145,7 +169,7 @@
             color: inherit;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 5px;
             position: relative;
             overflow: hidden;
         }
@@ -168,37 +192,28 @@
         .product-item:hover {
             background: rgba(255, 255, 255, 0.07);
             border-color: var(--accent);
-            transform: scale(1.02) translateX(5px);
+            transform: scale(1.01) translateX(5px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .product-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
         .product-name {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 400;
             line-height: 1.3;
         }
 
         .product-note {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-dim);
             font-weight: 300;
             line-height: 1.5;
-            margin-top: 5px;
         }
 
         .tip-box {
             background: rgba(212, 163, 115, 0.1);
             padding: 20px 25px;
             border-radius: 20px;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             font-size: 1rem;
             line-height: 1.6;
             border-left: 5px solid var(--accent);
@@ -255,32 +270,49 @@
         <!-- Подготовка кожи -->
         <div class="section" style="animation-delay: 0.1s;">
             <h2>Подготовка кожи</h2>
-            <div class="product-list">
-                <a href="https://goldapple.ru/19000230948-soybean-nourishing-toner" target="_blank" class="product-item">
-                    <span class="product-label">Тонер</span>
-                    <span class="product-name">ROUND LAB soybean nourishing toner</span>
-                </a>
-                <a href="https://goldapple.ru/19000150196-moisture-ample" target="_blank" class="product-item">
-                    <span class="product-label">Сыворотка</span>
-                    <span class="product-name">PYUNKANG YUL moisture ampoule</span>
-                </a>
-                <a href="https://goldapple.ru/19000307702-radiance-layer" target="_blank" class="product-item">
-                    <span class="product-label">Сыворотка</span>
-                    <span class="product-name">HUXLEY radiance layer</span>
-                </a>
-                <a href="https://goldapple.ru/19000006844-hyaluronic-acid-moist-cream" target="_blank" class="product-item">
-                    <span class="product-label">Крем</span>
-                    <span class="product-name">ISNTREE hyaluronic acid moist cream</span>
-                </a>
-                <a href="https://goldapple.ru/19000230953-birch-juice-moisturizing-sunscreen" target="_blank" class="product-item">
-                    <span class="product-label">Крем с SPF</span>
-                    <span class="product-name">ROUND LAB birch juice moisturizing sunscreen</span>
-                </a>
-                <a href="https://goldapple.ru/19000389018-ato-intensive-soothing" target="_blank" class="product-item">
-                    <span class="product-label">Мист для лица</span>
-                    <span class="product-name">PYUNKANG YUL ato intensive soothing</span>
-                    <span class="product-note">Использовать как тонер или для увлажнения поверх макияжа</span>
-                </a>
+            
+            <div class="sub-section">
+                <div class="sub-section-title">Тонер</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000230948-soybean-nourishing-toner" target="_blank" class="product-item">
+                        <span class="product-name">ROUND LAB soybean nourishing toner</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Сыворотка (выбери одну)</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000150196-moisture-ample" target="_blank" class="product-item">
+                        <span class="product-name">PYUNKANG YUL moisture ampoule</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000307702-radiance-layer" target="_blank" class="product-item">
+                        <span class="product-name">HUXLEY radiance layer</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Крем</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000006844-hyaluronic-acid-moist-cream" target="_blank" class="product-item">
+                        <span class="product-name">ISNTREE hyaluronic acid moist cream</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000230953-birch-juice-moisturizing-sunscreen" target="_blank" class="product-item">
+                        <span class="product-name">ROUND LAB birch juice moisturizing sunscreen</span>
+                        <span class="product-note">С защитой SPF — идеально на день</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Мист</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000389018-ato-intensive-soothing" target="_blank" class="product-item">
+                        <span class="product-name">PYUNKANG YUL ato intensive soothing</span>
+                        <span class="product-note">Для увлажнения поверх макияжа в течение дня</span>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -288,121 +320,150 @@
         <div class="section" style="animation-delay: 0.2s;">
             <h2>Тон & Лицо</h2>
             <div class="tip-box">
-                Советую взять этот стик сейчас на зиму: наносить на кожу и тушевать спонжем. Им же можно делать скулы.
+                Советую взять этот стик на зиму: наносите и тушуйте спонжем. Им же можно делать скулы.
             </div>
-            <div class="product-list">
-                <a href="https://goldapple.ru/88803400002-fresh-glow-cc-stick" target="_blank" class="product-item">
-                    <span class="product-label">CC Стик</span>
-                    <span class="product-name">BEAUTYDRUGS fresh glow cc stick</span>
-                </a>
-                <a href="https://goldapple.ru/19000001481-zvezdatyj-vzglad" target="_blank" class="product-item">
-                    <span class="product-label">Консилер</span>
-                    <span class="product-name">ORGANIC KITCHEN Звездатый взгляд</span>
-                    <span class="product-note">Персиковый оттенок идеально скрывает синеву под глазами</span>
-                </a>
-                <a href="https://goldapple.ru/19000164708-blush-trio" target="_blank" class="product-item">
-                    <span class="product-label">Румяна</span>
-                    <span class="product-name">ANASTASIA BEVERLY HILLS blush trio</span>
-                </a>
-                <a href="https://goldapple.ru/19000089587-skin-paradise-soft-velvet-finishing-powder" target="_blank" class="product-item">
-                    <span class="product-label">Пудра</span>
-                    <span class="product-name">DEAR DAHLIA skin paradise soft velvet finishing powder</span>
-                    <span class="product-note">Рассыпчатая и сияющая</span>
-                </a>
+            
+            <div class="sub-section">
+                <div class="sub-section-title">Тональное средство</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/88803400002-fresh-glow-cc-stick" target="_blank" class="product-item">
+                        <span class="product-name">BEAUTYDRUGS fresh glow cc stick</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Консилер</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000001481-zvezdatyj-vzglad" target="_blank" class="product-item">
+                        <span class="product-name">ORGANIC KITCHEN Звездатый взгляд</span>
+                        <span class="product-note">Персиковый оттенок для зоны под глазами</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Румяна & Пудра</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000164708-blush-trio" target="_blank" class="product-item">
+                        <span class="product-name">ANASTASIA BEVERLY HILLS blush trio</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000089587-skin-paradise-soft-velvet-finishing-powder" target="_blank" class="product-item">
+                        <span class="product-name">DEAR DAHLIA skin paradise finishing powder</span>
+                        <span class="product-note">Рассыпчатая, сияющая</span>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Брови -->
         <div class="section" style="animation-delay: 0.3s;">
             <h2>Брови</h2>
-            <div class="product-list">
-                <a href="https://goldapple.ru/19000314269-brow-laminator-extreme-fix-24h" target="_blank" class="product-item">
-                    <span class="product-label">Гель для фиксации</span>
-                    <span class="product-name">LUXVISAGE brow laminator & extreme fix 24h</span>
-                </a>
-                <a href="https://goldapple.ru/3226300002-brow-arcade-slim" target="_blank" class="product-item">
-                    <span class="product-label">Карандаш</span>
-                    <span class="product-name">VIVIENNE SABO brow arcade slim</span>
-                </a>
-                <a href="https://goldapple.ru/19000282676-browissimo-ultra-slim-super-stay-24h" target="_blank" class="product-item">
-                    <span class="product-label">Карандаш</span>
-                    <span class="product-name">LUXVISAGE browissimo ultra slim super stay</span>
-                    <span class="product-note">Отличная альтернатива Vivienne Sabo</span>
-                </a>
+            
+            <div class="sub-section">
+                <div class="sub-section-title">Фиксация</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000314269-brow-laminator-extreme-fix-24h" target="_blank" class="product-item">
+                        <span class="product-name">LUXVISAGE brow laminator</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Карандаш (выбери один)</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/3226300002-brow-arcade-slim" target="_blank" class="product-item">
+                        <span class="product-name">VIVIENNE SABO brow arcade slim</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000282676-browissimo-ultra-slim-super-stay-24h" target="_blank" class="product-item">
+                        <span class="product-name">LUXVISAGE browissimo ultra slim</span>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Глаза -->
         <div class="section" style="animation-delay: 0.4s;">
             <h2>Глаза</h2>
-            <div class="product-list">
-                <a href="https://goldapple.ru/19000025908-matt-tint-waterproof-12h" target="_blank" class="product-item">
-                    <span class="product-label">Тени-подложка</span>
-                    <span class="product-name">LUXVISAGE matt tint waterproof 12h</span>
-                </a>
-                <a href="https://goldapple.ru/19000052262-eye-sketch" target="_blank" class="product-item">
-                    <span class="product-label">Карандаш</span>
-                    <span class="product-name">SHU eye sketch</span>
-                    <span class="product-note">Коричневый, мягкий</span>
-                </a>
-                <a href="https://goldapple.ru/19000476051-nude" target="_blank" class="product-item">
-                    <span class="product-label">Палетка теней</span>
-                    <span class="product-name">DOPE. nude</span>
-                </a>
-                <a href="https://goldapple.ru/19000277614-single-eyeshadow" target="_blank" class="product-item">
-                    <span class="product-label">Спаркл</span>
-                    <span class="product-name">SHIKSTUDIO starlight single eyeshadow</span>
-                </a>
+            
+            <div class="sub-section">
+                <div class="sub-section-title">База & Карандаш</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000025908-matt-tint-waterproof-12h" target="_blank" class="product-item">
+                        <span class="product-name">LUXVISAGE matt tint waterproof</span>
+                        <span class="product-note">Идеальная подложка</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000052262-eye-sketch" target="_blank" class="product-item">
+                        <span class="product-name">SHU eye sketch</span>
+                        <span class="product-note">Мягкий коричневый</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Тени & Сияние</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000476051-nude" target="_blank" class="product-item">
+                        <span class="product-name">DOPE. nude palette</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000277614-single-eyeshadow" target="_blank" class="product-item">
+                        <span class="product-name">SHIKSTUDIO starlight single eyeshadow</span>
+                        <span class="product-note">Акцентное сияние</span>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Губы -->
         <div class="section" style="animation-delay: 0.5s;">
             <h2>Губы</h2>
-            <div class="tip-box">
-                Эти оттенки подобраны специально для безупречного результата.
+            
+            <div class="sub-section">
+                <div class="sub-section-title">Карандаши (на любой вкус)</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000391379-lip-pencil" target="_blank" class="product-item">
+                        <span class="product-name">SHIKSTUDIO lip pencil</span>
+                        <span class="product-note">Универсальный нюд</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000140953-le-grand-volume" target="_blank" class="product-item">
+                        <span class="product-name">VIVIENNE SABO le grand volume</span>
+                        <span class="product-note">Розово-коричневый</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000291640-lipfluence" target="_blank" class="product-item">
+                        <span class="product-name">INFLUENCE BEAUTY lipfluence</span>
+                        <span class="product-note">Холодный коричневый</span>
+                    </a>
+                </div>
             </div>
-            <div class="product-list">
-                <a href="https://goldapple.ru/19000391379-lip-pencil" target="_blank" class="product-item">
-                    <span class="product-label">Карандаш</span>
-                    <span class="product-name">SHIKSTUDIO lip pencil</span>
-                    <span class="product-note">Универсальный нюд</span>
-                </a>
-                <a href="https://goldapple.ru/19000140953-le-grand-volume" target="_blank" class="product-item">
-                    <span class="product-label">Карандаш</span>
-                    <span class="product-name">VIVIENNE SABO le grand volume</span>
-                    <span class="product-note">Розово-коричневый</span>
-                </a>
-                <a href="https://goldapple.ru/19000291640-lipfluence" target="_blank" class="product-item">
-                    <span class="product-label">Карандаш</span>
-                    <span class="product-name">INFLUENCE BEAUTY lipfluence</span>
-                    <span class="product-note">Холодный коричневый</span>
-                </a>
-                <a href="https://goldapple.ru/19000214302-icon-lips-glossy-volume" target="_blank" class="product-item">
-                    <span class="product-label">Блеск</span>
-                    <span class="product-name">LUXVISAGE icon lips glossy volume</span>
-                </a>
-                <a href="https://goldapple.ru/19000398493-ultrashining-lipgloss-tango" target="_blank" class="product-item">
-                    <span class="product-label">Блеск</span>
-                    <span class="product-name">NINELLE ultrashining lipgloss tango</span>
-                </a>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Блески</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000214302-icon-lips-glossy-volume" target="_blank" class="product-item">
+                        <span class="product-name">LUXVISAGE icon lips</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000398493-ultrashining-lipgloss-tango" target="_blank" class="product-item">
+                        <span class="product-name">NINELLE ultrashining lipgloss</span>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Фиксация -->
         <div class="section" style="animation-delay: 0.6s;">
             <h2>Фиксация</h2>
-            <div class="product-list">
-                <a href="https://goldapple.ru/19000347975-fixing-spray-make-up" target="_blank" class="product-item">
-                    <span class="product-label">Спрей</span>
-                    <span class="product-name">ALIX AVIEN fixing spray make up</span>
-                    <span class="product-note">Железобетонная стойкость</span>
-                </a>
-                <a href="https://goldapple.ru/19000273045-flawless-makeup-fix-spray" target="_blank" class="product-item">
-                    <span class="product-label">Спрей</span>
-                    <span class="product-name">SHIKSTUDIO flawless makeup fix spray</span>
-                    <span class="product-note">Естественный финиш</span>
-                </a>
+            <div class="sub-section">
+                <div class="sub-section-title">Спрей (выбери эффект)</div>
+                <div class="product-list">
+                    <a href="https://goldapple.ru/19000347975-fixing-spray-make-up" target="_blank" class="product-item">
+                        <span class="product-name">ALIX AVIEN fixing spray</span>
+                        <span class="product-note">Железобетонная стойкость на весь день</span>
+                    </a>
+                    <a href="https://goldapple.ru/19000273045-flawless-makeup-fix-spray" target="_blank" class="product-item">
+                        <span class="product-name">SHIKSTUDIO flawless fix spray</span>
+                        <span class="product-note">Естественный финиш и увлажнение</span>
+                    </a>
+                </div>
             </div>
         </div>
 
