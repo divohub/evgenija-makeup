@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evgenija | Makeup Artist</title>
+    <title>Evgenija | Моя косметика</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent: #d4a373; /* Золотисто-бежевый */
+            --accent: #d4a373; 
+            --accent-soft: rgba(212, 163, 115, 0.2);
             --bg: #1a1a1a;
-            --glass: rgba(255, 255, 255, 0.03);
+            --glass: rgba(255, 255, 255, 0.05);
             --text: #fefae0;
+            --text-dim: rgba(254, 250, 224, 0.6);
         }
 
         * {
@@ -26,12 +28,10 @@
             color: var(--text);
             overflow-x: hidden;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 60px 20px;
         }
 
-        /* Анимированный фон с мягкими пятнами */
+        /* Animated Background */
         .bg-blobs {
             position: fixed;
             top: 0;
@@ -45,13 +45,13 @@
 
         .blob {
             position: absolute;
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
             background: var(--accent);
-            filter: blur(120px);
-            opacity: 0.15;
+            filter: blur(140px);
+            opacity: 0.1;
             border-radius: 50%;
-            animation: move 25s infinite alternate;
+            animation: move 30s infinite alternate;
         }
 
         @keyframes move {
@@ -59,157 +59,355 @@
             to { transform: translate(30%, 30%) rotate(360deg); }
         }
 
-        /* Основная карточка */
-        .container {
-            max-width: 450px;
-            width: 90%;
-            padding: 3rem 2rem;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 40px;
+        /* Header */
+        header {
+            max-width: 800px;
+            margin: 0 auto 60px;
             text-align: center;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-            animation: slideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            animation: fadeInDown 1s ease-out;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-            padding: 5px;
-            position: relative;
-            transition: transform 0.5s ease;
-        }
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: #333; /* Заглушка пока нет фото */
-        }
-
-        .container:hover .profile-img {
-            transform: scale(1.05);
-        }
-
-        h1 {
+        header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
+            font-size: 3.5rem;
             color: var(--accent);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
         }
 
-        .tagline {
+        header p {
             font-style: italic;
             font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             opacity: 0.8;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+            color: var(--text);
         }
 
-        .description {
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            font-size: 0.95rem;
+        /* Content Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
         }
 
-        /* Кнопки */
-        .nav-links {
-            display: grid;
-            gap: 15px;
+        .section {
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 35px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
         }
 
-        .nav-item {
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 16px;
-            text-decoration: none;
-            color: var(--text);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 18px;
-            font-weight: 600;
+            gap: 20px;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-soft), transparent);
+        }
+
+        .product-list {
+            display: grid;
+            gap: 25px;
+        }
+
+        .product-item {
+            padding: 20px 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             position: relative;
             overflow: hidden;
         }
 
-        .nav-item::before {
+        .product-item::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
             transition: 0.5s;
         }
 
-        .nav-item:hover::before {
+        .product-item:hover::before {
             left: 100%;
         }
 
-        .nav-item:hover {
-            background: var(--accent);
-            color: #1a1a1a;
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(212, 163, 115, 0.3);
+        .product-item:hover {
+            background: rgba(255, 255, 255, 0.07);
             border-color: var(--accent);
+            transform: scale(1.02) translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .nav-item.primary {
-            background: var(--accent);
-            color: #1a1a1a;
+        .product-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
         }
 
-        .nav-item.primary:hover {
-            filter: brightness(1.1);
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .product-note {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            font-weight: 300;
+            line-height: 1.5;
+            margin-top: 5px;
+        }
+
+        .tip-box {
+            background: rgba(212, 163, 115, 0.1);
+            padding: 20px 25px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            font-size: 1rem;
+            line-height: 1.6;
+            border-left: 5px solid var(--accent);
+            font-style: italic;
         }
 
         footer {
-            margin-top: 2.5rem;
-            font-size: 0.8rem;
-            opacity: 0.4;
+            text-align: center;
+            margin-top: 80px;
+            padding-bottom: 40px;
+            font-size: 0.85rem;
+            opacity: 0.3;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(212, 163, 115, 0.2);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.8rem; }
+            .section { padding: 25px; }
+            .product-name { font-size: 1.1rem; }
+            body { padding: 40px 15px; }
         }
     </style>
 </head>
 <body>
     <div class="bg-blobs">
         <div class="blob" style="top: -10%; left: -10%;"></div>
-        <div class="blob" style="bottom: -10%; right: -10%; background: #a5a58d; animation-delay: -5s;"></div>
+        <div class="blob" style="bottom: 10%; right: -10%; background: #a5a58d; animation-delay: -5s;"></div>
+        <div class="blob" style="top: 40%; left: 60%; width: 400px; height: 400px; background: #8d5b4c; opacity: 0.05;"></div>
     </div>
+
+    <header>
+        <h1>Evgenija</h1>
+        <p>My Makeup Essentials</p>
+    </header>
 
     <div class="container">
-        <div class="profile-img">
-            <!-- Здесь будет фото Евгении -->
-            <div style="width:100%; height:100%; border-radius:50%; background: #2a2a2a; display:flex; align-items:center; justify-content:center; font-size:3rem; font-family:'Playfair Display'">E</div>
-        </div>
-        <h1>Evgenija</h1>
-        <div class="tagline">Makeup Artist & Stylist</div>
-        <p class="description">Создаю образы, которые подчеркивают вашу природную красоту. Вечерний макияж, свадебные образы и обучение «Макияж для себя».</p>
         
-        <div class="nav-links">
-            <a href="https://t.me/httpdivo" class="nav-item primary">✨ Записаться (Telegram)</a>
-            <a href="/cosmetics.html" class="nav-item">💄 Моя косметика</a>
-            <a href="#" class="nav-item">📜 Прайс-лист</a>
-            <a href="#" class="nav-item">📸 Instagram</a>
+        <!-- Подготовка кожи -->
+        <div class="section" style="animation-delay: 0.1s;">
+            <h2>Подготовка кожи</h2>
+            <div class="product-list">
+                <a href="https://goldapple.ru/19000230948-soybean-nourishing-toner" target="_blank" class="product-item">
+                    <span class="product-label">Тонер</span>
+                    <span class="product-name">ROUND LAB soybean nourishing toner</span>
+                </a>
+                <a href="https://goldapple.ru/19000150196-moisture-ample" target="_blank" class="product-item">
+                    <span class="product-label">Сыворотка</span>
+                    <span class="product-name">PYUNKANG YUL moisture ampoule</span>
+                </a>
+                <a href="https://goldapple.ru/19000307702-radiance-layer" target="_blank" class="product-item">
+                    <span class="product-label">Сыворотка</span>
+                    <span class="product-name">HUXLEY radiance layer</span>
+                </a>
+                <a href="https://goldapple.ru/19000006844-hyaluronic-acid-moist-cream" target="_blank" class="product-item">
+                    <span class="product-label">Крем</span>
+                    <span class="product-name">ISNTREE hyaluronic acid moist cream</span>
+                </a>
+                <a href="https://goldapple.ru/19000230953-birch-juice-moisturizing-sunscreen" target="_blank" class="product-item">
+                    <span class="product-label">Крем с SPF</span>
+                    <span class="product-name">ROUND LAB birch juice moisturizing sunscreen</span>
+                </a>
+                <a href="https://goldapple.ru/19000389018-ato-intensive-soothing" target="_blank" class="product-item">
+                    <span class="product-label">Мист для лица</span>
+                    <span class="product-name">PYUNKANG YUL ato intensive soothing</span>
+                    <span class="product-note">Использовать как тонер или для увлажнения поверх макияжа</span>
+                </a>
+            </div>
         </div>
 
-        <footer>© 2026 EVGENIJA MAKEUP</footer>
+        <!-- Тон -->
+        <div class="section" style="animation-delay: 0.2s;">
+            <h2>Тон & Лицо</h2>
+            <div class="tip-box">
+                Советую взять этот стик сейчас на зиму: наносить на кожу и тушевать спонжем. Им же можно делать скулы.
+            </div>
+            <div class="product-list">
+                <a href="https://goldapple.ru/88803400002-fresh-glow-cc-stick" target="_blank" class="product-item">
+                    <span class="product-label">CC Стик</span>
+                    <span class="product-name">BEAUTYDRUGS fresh glow cc stick</span>
+                </a>
+                <a href="https://goldapple.ru/19000001481-zvezdatyj-vzglad" target="_blank" class="product-item">
+                    <span class="product-label">Консилер</span>
+                    <span class="product-name">ORGANIC KITCHEN Звездатый взгляд</span>
+                    <span class="product-note">Персиковый оттенок идеально скрывает синеву под глазами</span>
+                </a>
+                <a href="https://goldapple.ru/19000164708-blush-trio" target="_blank" class="product-item">
+                    <span class="product-label">Румяна</span>
+                    <span class="product-name">ANASTASIA BEVERLY HILLS blush trio</span>
+                </a>
+                <a href="https://goldapple.ru/19000089587-skin-paradise-soft-velvet-finishing-powder" target="_blank" class="product-item">
+                    <span class="product-label">Пудра</span>
+                    <span class="product-name">DEAR DAHLIA skin paradise soft velvet finishing powder</span>
+                    <span class="product-note">Рассыпчатая и сияющая</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Брови -->
+        <div class="section" style="animation-delay: 0.3s;">
+            <h2>Брови</h2>
+            <div class="product-list">
+                <a href="https://goldapple.ru/19000314269-brow-laminator-extreme-fix-24h" target="_blank" class="product-item">
+                    <span class="product-label">Гель для фиксации</span>
+                    <span class="product-name">LUXVISAGE brow laminator & extreme fix 24h</span>
+                </a>
+                <a href="https://goldapple.ru/3226300002-brow-arcade-slim" target="_blank" class="product-item">
+                    <span class="product-label">Карандаш</span>
+                    <span class="product-name">VIVIENNE SABO brow arcade slim</span>
+                </a>
+                <a href="https://goldapple.ru/19000282676-browissimo-ultra-slim-super-stay-24h" target="_blank" class="product-item">
+                    <span class="product-label">Карандаш</span>
+                    <span class="product-name">LUXVISAGE browissimo ultra slim super stay</span>
+                    <span class="product-note">Отличная альтернатива Vivienne Sabo</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Глаза -->
+        <div class="section" style="animation-delay: 0.4s;">
+            <h2>Глаза</h2>
+            <div class="product-list">
+                <a href="https://goldapple.ru/19000025908-matt-tint-waterproof-12h" target="_blank" class="product-item">
+                    <span class="product-label">Тени-подложка</span>
+                    <span class="product-name">LUXVISAGE matt tint waterproof 12h</span>
+                </a>
+                <a href="https://goldapple.ru/19000052262-eye-sketch" target="_blank" class="product-item">
+                    <span class="product-label">Карандаш</span>
+                    <span class="product-name">SHU eye sketch</span>
+                    <span class="product-note">Коричневый, мягкий</span>
+                </a>
+                <a href="https://goldapple.ru/19000476051-nude" target="_blank" class="product-item">
+                    <span class="product-label">Палетка теней</span>
+                    <span class="product-name">DOPE. nude</span>
+                </a>
+                <a href="https://goldapple.ru/19000277614-single-eyeshadow" target="_blank" class="product-item">
+                    <span class="product-label">Спаркл</span>
+                    <span class="product-name">SHIKSTUDIO starlight single eyeshadow</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Губы -->
+        <div class="section" style="animation-delay: 0.5s;">
+            <h2>Губы</h2>
+            <div class="tip-box">
+                Эти оттенки подобраны специально для безупречного результата.
+            </div>
+            <div class="product-list">
+                <a href="https://goldapple.ru/19000391379-lip-pencil" target="_blank" class="product-item">
+                    <span class="product-label">Карандаш</span>
+                    <span class="product-name">SHIKSTUDIO lip pencil</span>
+                    <span class="product-note">Универсальный нюд</span>
+                </a>
+                <a href="https://goldapple.ru/19000140953-le-grand-volume" target="_blank" class="product-item">
+                    <span class="product-label">Карандаш</span>
+                    <span class="product-name">VIVIENNE SABO le grand volume</span>
+                    <span class="product-note">Розово-коричневый</span>
+                </a>
+                <a href="https://goldapple.ru/19000291640-lipfluence" target="_blank" class="product-item">
+                    <span class="product-label">Карандаш</span>
+                    <span class="product-name">INFLUENCE BEAUTY lipfluence</span>
+                    <span class="product-note">Холодный коричневый</span>
+                </a>
+                <a href="https://goldapple.ru/19000214302-icon-lips-glossy-volume" target="_blank" class="product-item">
+                    <span class="product-label">Блеск</span>
+                    <span class="product-name">LUXVISAGE icon lips glossy volume</span>
+                </a>
+                <a href="https://goldapple.ru/19000398493-ultrashining-lipgloss-tango" target="_blank" class="product-item">
+                    <span class="product-label">Блеск</span>
+                    <span class="product-name">NINELLE ultrashining lipgloss tango</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Фиксация -->
+        <div class="section" style="animation-delay: 0.6s;">
+            <h2>Фиксация</h2>
+            <div class="product-list">
+                <a href="https://goldapple.ru/19000347975-fixing-spray-make-up" target="_blank" class="product-item">
+                    <span class="product-label">Спрей</span>
+                    <span class="product-name">ALIX AVIEN fixing spray make up</span>
+                    <span class="product-note">Железобетонная стойкость</span>
+                </a>
+                <a href="https://goldapple.ru/19000273045-flawless-makeup-fix-spray" target="_blank" class="product-item">
+                    <span class="product-label">Спрей</span>
+                    <span class="product-name">SHIKSTUDIO flawless makeup fix spray</span>
+                    <span class="product-note">Естественный финиш</span>
+                </a>
+            </div>
+        </div>
+
     </div>
+
+    <footer>© 2026 EVGENIJA MAKEUP</footer>
 </body>
 </html>
